@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Clipy</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 class="logo">Clipy</h1>
+
+<div id="joinSection" class="joinBox">
+
+<input id="roomId" placeholder="Enter Room ID">
+<button onclick="joinRoom()">Join Room</button>
+
+</div>
+
+<div id="roomHeader" class="roomHeader" style="display:none">
+
+<h2 id="roomLegend"></h2>
+
+<button class="exitBtn" onclick="exitRoom()">Exit</button>
+
+</div>
+
+<div id="workspace" class="workspace" style="display:none">
+
+<!-- CONVERTER -->
+
+<div class="panel converter">
+
+<h3>PNG → JPEG Converter</h3>
+
+<input type="file" id="imageUpload">
+<button onclick="convertImage()">Convert</button>
+
+<div id="convertList"></div>
+
+</div>
+
+<!-- CLIPBOARD -->
+
+<div class="panel clipboardPanel">
+
+<h3>Live Clipboard</h3>
+
+<textarea id="clipboard"></textarea>
+
+<button onclick="copyText()">Copy</button>
+
+</div>
+
+<!-- FILE SHARING -->
+
+<div class="panel filePanel">
+
+<h3>File Sharing</h3>
+
+<input type="file" id="fileUpload">
+
+<button onclick="uploadFile()">Upload</button>
+
+<div id="fileList"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
