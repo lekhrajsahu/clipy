@@ -1,154 +1,1336 @@
-body{
-    margin:0;
-    font-family:Segoe UI;
-    background:linear-gradient(135deg,#1f3b4d,#0f2027);
-    color:white;
+/* =========================================================
+   CLIPY — MODERN COMPACT RESPONSIVE UI
+   ========================================================= */
+
+   * {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    color: #f8fafc;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(59, 130, 246, 0.15),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(139, 92, 246, 0.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #070b14,
+            #0b1220 50%,
+            #0d1422
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   APP SHELL
+   ========================================================= */
+
+.app-shell {
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   JOIN SCREEN
+   ========================================================= */
+
+.join-screen {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+.brand-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        #3b82f6,
+        #6366f1
+    );
+
+    font-size: 24px;
+
+    box-shadow:
+        0 10px 30px rgba(59, 130, 246, 0.25);
+}
+
+.brand h1 {
+    margin: 0;
+
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.brand p {
+    margin: 3px 0 0;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   JOIN CARD
+   ========================================================= */
+
+.join-card {
+    width: min(460px, 100%);
+
+    padding: 32px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.35);
+
+    backdrop-filter: blur(20px);
+}
+
+.eyebrow {
+    color: #60a5fa;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 8px;
+}
+
+.join-card h2 {
+    margin: 0;
+
+    font-size: 26px;
+}
+
+.subtitle {
+    margin: 9px 0 22px;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   ROOM INPUT
+   ========================================================= */
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 14px;
+
+    height: 48px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 10px;
+
+    background: rgba(0, 0, 0, 0.18);
+
+    transition: 0.2s;
+}
+
+.input-wrapper:focus-within {
+    border-color: #3b82f6;
+
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.input-icon {
+    color: #64748b;
+
+    font-size: 16px;
+}
+
+.input-wrapper input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 13px;
+}
+
+.input-wrapper input::placeholder {
+    color: #64748b;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.primary-btn {
+    border: none;
+
+    border-radius: 9px;
+
+    background: linear-gradient(
+        135deg,
+        #3b82f6,
+        #6366f1
+    );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        opacity 0.2s;
+}
+
+.primary-btn:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 25px rgba(59, 130, 246, 0.25);
+}
+
+.join-btn {
+    width: 100%;
+
+    height: 46px;
+
+    margin-top: 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 15px;
+}
+
+.arrow {
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   SECURITY NOTE
+   ========================================================= */
+
+.security-note {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    margin-top: 15px;
+
+    color: #64748b;
+
+    font-size: 10px;
+}
+
+.security-note span {
+    color: #22c55e;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
+.feature-row {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-top: 20px;
+
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+.feature {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.feature span {
+    color: #60a5fa;
+}
+
+
+/* =========================================================
+   APPLICATION SCREEN
+   ========================================================= */
+
+.app-screen {
+    width: min(1500px, 100%);
+
+    height: 100vh;
+
+    margin: auto;
+
+    padding: 16px 22px;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.topbar {
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 12px;
+}
+
+.topbar-left {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+}
+
+.mini-logo {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: linear-gradient(
+        135deg,
+        #3b82f6,
+        #6366f1
+    );
+
+    font-size: 17px;
+}
+
+.brand-text {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.brand-text strong {
+    font-size: 14px;
+}
+
+.brand-text span {
+    color: #64748b;
+
+    font-size: 9px;
+
+    margin-top: 1px;
+}
+
+
+/* =========================================================
+   ROOM BADGE
+   ========================================================= */
+
+.room-badge {
+    margin-left: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 7px 11px;
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    font-size: 10px;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow:
+        0 0 8px rgba(34, 197, 94, 0.7);
+}
+
+.room-label {
+    color: #64748b;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+}
+
+.room-badge strong {
+    color: #cbd5e1;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   EXIT
+   ========================================================= */
+
+.exit-btn {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 7px 11px;
+
+    border: 1px solid rgba(239, 68, 68, 0.2);
+
+    border-radius: 8px;
+
+    background: rgba(239, 68, 68, 0.08);
+
+    color: #fca5a5;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.exit-btn:hover {
+    background: rgba(239, 68, 68, 0.15);
+}
+
+
+/* =========================================================
+   WORKSPACE
+   ========================================================= */
+
+.workspace {
+    flex: 1;
+
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.55fr)
+        minmax(320px, 0.85fr);
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   PANELS
+   ========================================================= */
+
+.panel {
+    min-width: 0;
+    min-height: 0;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.18);
+
+    backdrop-filter: blur(18px);
+}
+
+
+/* =========================================================
+   PANEL HEADER
+   ========================================================= */
+
+.panel-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.panel-kicker {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #60a5fa;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+.panel h2 {
+    margin: 0;
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+.panel-description {
+    margin: 6px 0 11px;
+
+    color: #64748b;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   LIVE INDICATOR
+   ========================================================= */
+
+.live-indicator {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 5px 8px;
+
+    border-radius: 7px;
+
+    background: rgba(34, 197, 94, 0.08);
+
+    color: #86efac;
+
+    font-size: 9px;
+}
+
+.live-indicator span {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+}
+
+
+/* =========================================================
+   CLIPBOARD PANEL
+   ========================================================= */
+
+.clipboard-panel {
+    height: 100%;
+
+    min-height: 0;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/*
+    THIS CONTROLS THE HEIGHT OF THE CLIPBOARD AREA.
+
+    Because the panel uses flexbox, #clipboard
+    automatically takes the remaining height.
+*/
+
+.clipboard-wrapper {
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   CLIPBOARD TEXTAREA
+   ========================================================= */
+
+#clipboard {
+    width: 100%;
+
+    flex: 1;
+
+    min-height: 300px;
+
+    padding: 15px;
+
+    resize: none;
+
+    outline: none;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 10px;
+
+    background: rgba(0, 0, 0, 0.22);
+
+    color: #dbeafe;
+
+    font-family:
+        "Consolas",
+        "Courier New",
+        monospace;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    transition: 0.2s;
+}
+
+#clipboard:focus {
+    border-color: rgba(59, 130, 246, 0.45);
+
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.08);
+}
+
+#clipboard::placeholder {
+    color: #475569;
+}
+
+
+/* =========================================================
+   CLIPBOARD FOOTER
+   ========================================================= */
+
+.clipboard-footer {
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: 8px;
+}
+
+#charCount {
+    color: #475569;
+
+    font-size: 9px;
+}
+
+.copy-btn {
+    width: auto;
+
+    padding: 7px 13px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: rgba(59, 130, 246, 0.12);
+
+    color: #93c5fd;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.copy-btn:hover {
+    background: rgba(59, 130, 246, 0.2);
+}
+
+
+/* =========================================================
+   SIDE COLUMN
+   ========================================================= */
+
+.side-column {
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-rows:
+        minmax(0, 1.5fr)
+        minmax(0, 1fr);
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   FILE PANEL
+   ========================================================= */
+
+.file-panel {
+    min-height: 0;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   COUNT BADGE
+   ========================================================= */
+
+.count-badge,
+.format-badge {
+    padding: 5px 8px;
+
+    border-radius: 7px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    color: #94a3b8;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   DROP ZONE
+   ========================================================= */
+
+.drop-zone {
+    min-height: 92px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+
+    padding: 12px;
+
+    border: 1px dashed rgba(148, 163, 184, 0.28);
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.018);
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.drop-zone:hover,
+.drop-zone.dragover {
+    border-color: #3b82f6;
+
+    background: rgba(59, 130, 246, 0.06);
+}
+
+.upload-icon {
+    font-size: 20px;
+
+    color: #60a5fa;
+
+    margin-bottom: 2px;
+}
+
+.drop-zone strong {
+    font-size: 10px;
+
+    color: #cbd5e1;
+}
+
+.drop-zone span {
+    color: #475569;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   SELECTED FILES
+   ========================================================= */
+
+.selected-files {
+    max-height: 70px;
+
+    overflow-y: auto;
+
+    margin-top: 6px;
+}
+
+.selected-files:empty {
+    display: none;
+}
+
+
+/* =========================================================
+   UPLOAD BUTTON
+   ========================================================= */
+
+.upload-btn {
+    width: 100%;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 11px;
+
+    margin-top: 7px;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   FILE LIST
+   ========================================================= */
+
+.file-list {
+    flex: 1;
+
+    min-height: 0;
+
+    overflow-y: auto;
+
+    margin-top: 7px;
+
+    padding-right: 3px;
+}
+
+.file-item {
+    min-height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 8px;
+
+    padding: 6px 8px;
+
+    margin-bottom: 5px;
+
+    border-radius: 7px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid rgba(255, 255, 255, 0.035);
+}
+
+.file-item span {
+    min-width: 0;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+    color: #94a3b8;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   DOWNLOAD / DELETE BUTTONS
+   ========================================================= */
+
+.downloadBtn,
+.deleteBtn {
+    width: auto !important;
+
+    flex-shrink: 0;
+
+    padding: 5px 8px !important;
+
+    margin: 0 !important;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-size: 8px !important;
+
+    cursor: pointer;
+
+    box-shadow: none !important;
+
+    transform: none !important;
+}
+
+.downloadBtn {
+    background: rgba(16, 185, 129, 0.1) !important;
+
+    color: #6ee7b7 !important;
+}
+
+.deleteBtn {
+    background: rgba(239, 68, 68, 0.1) !important;
+
+    color: #fca5a5 !important;
+}
+
+
+/* =========================================================
+   IMAGE CONVERTER
+   ========================================================= */
+
+.converter-panel {
+    min-height: 0;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+.file-select {
+    height: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    color: #94a3b8;
+
+    font-size: 9px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.file-select:hover {
+    border-color: rgba(59, 130, 246, 0.45);
+
+    background: rgba(59, 130, 246, 0.04);
+}
+
+.image-icon {
+    color: #60a5fa;
+
+    font-size: 14px;
+}
+
+.file-select span:nth-child(2) {
+    flex: 1;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   CONVERTER BUTTON
+   ========================================================= */
+
+.secondary-btn {
+    height: 33px;
+
+    margin-top: 7px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    color: #cbd5e1;
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.09);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.app-footer {
+    height: 22px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    margin-top: 7px;
+
+    color: #334155;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast-container {
+    position: fixed;
+
+    right: 18px;
+    bottom: 18px;
+
+    z-index: 9999;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+/* =========================================================
+   SCROLLBARS
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.18);
+
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.3);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .app-screen {
+        padding: 14px 16px;
     }
-    
-    .container{
-    width:95%;
-    margin:auto;
-    padding:20px;
+
+    .workspace {
+        grid-template-columns:
+            minmax(0, 1.35fr)
+            minmax(280px, 0.85fr);
     }
-    
-    .logo{
-    text-align:center;
-    font-size:32px;
-    margin-bottom:25px;
+
+    .panel {
+        padding: 13px;
     }
-    
-    .joinBox{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    flex-wrap:wrap;
+
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    html,
+    body {
+        overflow-y: auto;
     }
-    
-    .joinBox input{
-    padding:12px;
-    width:250px;
-    border-radius:8px;
-    border:none;
+
+    .app-screen {
+        height: auto;
+
+        min-height: 100vh;
+
+        padding: 12px;
     }
-    
-    .joinBox button{
-    padding:12px 20px;
-    background:#3b82f6;
-    border:none;
-    border-radius:8px;
-    color:white;
-    cursor:pointer;
+
+    .topbar {
+        margin-bottom: 10px;
     }
-    
-    .roomHeader{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
-    flex-wrap:wrap;
+
+    .workspace {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
     }
-    
-    .exitBtn{
-    background:#ef4444;
-    padding:8px 16px;
-    border:none;
-    border-radius:6px;
-    color:white;
-    cursor:pointer;
+
+    .clipboard-panel {
+        height: 430px;
     }
-    
-    /* DESKTOP LAYOUT */
-    
-    .workspace{
-    display:flex;
-    gap:20px;
+
+    .side-column {
+        grid-template-rows: auto auto;
+
+        gap: 12px;
     }
-    
-    .panel{
-    flex:1;
-    background:rgba(255,255,255,0.08);
-    padding:20px;
-    border-radius:12px;
+
+    .file-panel {
+        min-height: 330px;
     }
-    
-    .clipboardPanel{
-    flex:2;
+
+    .converter-panel {
+        min-height: 230px;
     }
-    
-    #clipboard{
-    width:100%;
-    height:350px;
-    padding:14px;
-    border-radius:10px;
-    border:none;
-    resize:none;
-    overflow-y:auto;
-    font-size:16px;
+
+}
+
+
+/* =========================================================
+   PHONE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .join-screen {
+        padding: 20px 14px;
     }
-    
-    .panel button{
-    margin-top:10px;
-    padding:10px;
-    width:100%;
-    border:none;
-    border-radius:8px;
-    background:#3b82f6;
-    color:white;
-    cursor:pointer;
+
+    .brand {
+        margin-bottom: 20px;
     }
-    
-    .fileItem{
-    background:rgba(255,255,255,0.15);
-    padding:8px;
-    margin-top:10px;
-    border-radius:8px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
+
+    .brand h1 {
+        font-size: 24px;
     }
-    
-    .downloadBtn{
-    background:#10b981;
-    border:none;
-    padding:6px 12px;
-    border-radius:6px;
-    color:white;
-    cursor:pointer;
+
+    .join-card {
+        padding: 24px 18px;
     }
-    
-    /* PHONE LAYOUT */
-    
-    @media (max-width:900px){
-    
-    .workspace{
-    flex-direction:column;
+
+    .feature-row {
+        gap: 12px;
+
+        flex-wrap: wrap;
     }
-    
-    .clipboardPanel{
-    order:1;
+
+    .topbar {
+        flex-wrap: wrap;
+
+        height: auto;
     }
-    
-    .filePanel{
-    order:2;
+
+    .room-badge {
+        margin-left: auto;
     }
-    
-    .converter{
-    order:3;
+
+    .exit-btn {
+        padding: 6px 9px;
     }
-    
-    #clipboard{
-    height:250px;
+
+    .app-screen {
+        padding: 10px;
     }
-    
-    .joinBox{
-    flex-direction:column;
-    align-items:center;
+
+    .clipboard-panel {
+        height: 400px;
     }
-    
-    .joinBox input{
-    width:100%;
-    max-width:300px;
+
+    #clipboard {
+        min-height: 250px;
     }
-    
+
+    .panel {
+        padding: 12px;
     }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .brand-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .join-card {
+        padding: 20px 15px;
+    }
+
+    .clipboard-panel {
+        height: 370px;
+    }
+
+    #clipboard {
+        min-height: 220px;
+    }
+
+    .file-item {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .downloadBtn,
+    .deleteBtn {
+        width: 100% !important;
+    }
+
+}

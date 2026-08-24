@@ -1,80 +1,567 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
-<title>Clipy</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#080d18"
+    >
+
+    <title>Clipy</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
+
 <body>
 
-<div class="container">
 
-<h1 class="logo">Clipy</h1>
+<div class="app-shell">
 
-<div id="joinSection" class="joinBox">
 
-<input id="roomId" placeholder="Enter Room ID">
-<button onclick="joinRoom()">Join Room</button>
+    <!-- =================================
+         JOIN SCREEN
+    ================================== -->
+
+    <section
+        id="joinSection"
+        class="join-screen"
+    >
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ✦
+            </div>
+
+            <div>
+
+                <h1>Clipy</h1>
+
+                <p>
+                    Share anything. Instantly.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="join-card">
+
+            <div class="join-card-content">
+
+                <div class="eyebrow">
+                    PRIVATE WORKSPACE
+                </div>
+
+                <h2>
+                    Join a room
+                </h2>
+
+                <p class="subtitle">
+
+                    Enter a Room ID to sync your
+                    clipboard and share files across
+                    your devices.
+
+                </p>
+
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">
+                        #
+                    </span>
+
+                    <input
+                        id="roomId"
+                        type="text"
+                        placeholder="Enter Room ID"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <button
+                    class="primary-btn join-btn"
+                    onclick="joinRoom()"
+                >
+
+                    <span>
+                        Join Room
+                    </span>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <div class="security-note">
+
+                    <span>●</span>
+
+                    Room data is temporary
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="feature-row">
+
+            <div class="feature">
+                <span>⚡</span>
+                Realtime sync
+            </div>
+
+            <div class="feature">
+                <span>↗</span>
+                File sharing
+            </div>
+
+            <div class="feature">
+                <span>⌁</span>
+                Any device
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         APPLICATION
+    ================================== -->
+
+    <section
+        id="appSection"
+        class="app-screen"
+        style="display:none;"
+    >
+
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <div class="mini-logo">
+                    ✦
+                </div>
+
+                <div class="brand-text">
+
+                    <strong>
+                        Clipy
+                    </strong>
+
+                    <span>
+                        Realtime workspace
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="room-badge">
+
+                <span class="status-dot"></span>
+
+                <span class="room-label">
+                    ROOM
+                </span>
+
+                <strong id="roomLegend">
+                    —
+                </strong>
+
+            </div>
+
+
+            <button
+                class="exit-btn"
+                onclick="exitRoom()"
+            >
+
+                <span>
+                    Exit
+                </span>
+
+                <span>
+                    ↗
+                </span>
+
+            </button>
+
+        </header>
+
+
+
+        <!-- WORKSPACE -->
+
+        <div class="workspace">
+
+
+            <!-- =================================
+                 CLIPBOARD
+            ================================== -->
+
+            <section class="panel clipboard-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            REALTIME
+                        </span>
+
+                        <h2>
+                            Live Clipboard
+                        </h2>
+
+                    </div>
+
+
+                    <div class="live-indicator">
+
+                        <span></span>
+
+                        Live
+
+                    </div>
+
+                </div>
+
+
+                <p class="panel-description">
+
+                    Type or paste anything here.
+                    It will appear instantly on
+                    other devices in this room.
+
+                </p>
+
+
+                <div class="clipboard-wrapper">
+
+                    <textarea
+                        id="clipboard"
+                        placeholder="Start typing or paste something here..."
+                        spellcheck="false"
+                    ></textarea>
+
+
+                    <div class="clipboard-footer">
+
+                        <span id="charCount">
+                            0 characters
+                        </span>
+
+
+                        <button
+                            class="copy-btn"
+                            onclick="copyText()"
+                        >
+                            Copy
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 SIDE COLUMN
+            ================================== -->
+
+            <div class="side-column">
+
+
+                <!-- FILE SHARING -->
+
+                <section class="panel file-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="panel-kicker">
+                                SHARING
+                            </span>
+
+                            <h2>
+                                Files
+                            </h2>
+
+                        </div>
+
+
+                        <span
+                            class="count-badge"
+                            id="fileCount"
+                        >
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <p class="panel-description">
+
+                        Share up to 5 files at once.
+                        Drag and drop or browse.
+
+                    </p>
+
+
+                    <!-- DROP ZONE -->
+
+                    <div
+                        class="drop-zone"
+                        id="dropZone"
+                    >
+
+                        <div
+                            class="upload-icon"
+                            id="uploadIcon"
+                        >
+                            ↑
+                        </div>
+
+
+                        <strong
+                            id="fileSelectionTitle"
+                        >
+                            Drop files here
+                        </strong>
+
+
+                        <span
+                            id="fileSelectionName"
+                        >
+                            or click to browse • Max 5 files
+                        </span>
+
+
+                        <input
+                            type="file"
+                            id="fileUpload"
+                            multiple
+                            hidden
+                        >
+
+                    </div>
+
+
+                    <!-- SELECTED FILES -->
+
+                    <div
+                        id="selectedFiles"
+                        class="selected-files"
+                    ></div>
+
+
+                    <!-- UPLOAD BUTTON -->
+
+                    <button
+                        id="uploadButton"
+                        class="primary-btn upload-btn"
+                        onclick="uploadFiles()"
+                    >
+
+                        <span>
+                            Upload Files
+                        </span>
+
+                        <span>
+                            ↑
+                        </span>
+
+                    </button>
+
+
+                    <!-- FILE LIST -->
+
+                    <div
+                        id="fileList"
+                        class="file-list"
+                    ></div>
+
+                </section>
+
+
+
+                <!-- IMAGE CONVERTER -->
+
+                <section class="panel converter-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="panel-kicker">
+                                UTILITY
+                            </span>
+
+                            <h2>
+                                Image Converter
+                            </h2>
+
+                        </div>
+
+
+                        <span class="format-badge">
+                            PNG → JPG
+                        </span>
+
+                    </div>
+
+
+                    <p class="panel-description">
+
+                        Convert PNG images into
+                        high-quality JPEG files.
+
+                    </p>
+
+
+                    <label
+                        for="imageUpload"
+                        class="file-select"
+                    >
+
+                        <span class="image-icon">
+                            ▧
+                        </span>
+
+
+                        <span id="imageName">
+                            Choose PNG image
+                        </span>
+
+
+                        <span>
+                            ›
+                        </span>
+
+                    </label>
+
+
+                    <input
+                        type="file"
+                        id="imageUpload"
+                        accept="image/*"
+                        hidden
+                    >
+
+
+                    <button
+                        class="secondary-btn"
+                        onclick="convertImage()"
+                    >
+                        Convert Image
+                    </button>
+
+
+                    <div
+                        id="convertList"
+                        class="file-list"
+                    ></div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+
+
+        <footer class="app-footer">
+
+            
+
+            <footer class="app-footer">
+
+                <span>Clipy</span>
+            
+                <span>•</span>
+            
+                <span>
+                    Realtime sharing made simple
+                </span>
+            
+                <span>•</span>
+            
+                <span>
+                    Developed & Managed by
+                    <a
+                        href="https://www.linkedin.com/in/lekhraj-sahu/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Lekhraj Sahu
+                    </a>
+                </span>
+
+        </footer>
+
+    </section>
 
 </div>
 
-<div id="roomHeader" class="roomHeader" style="display:none">
 
-<h2 id="roomLegend"></h2>
 
-<button class="exitBtn" onclick="exitRoom()">Exit</button>
+<!-- TOAST -->
 
-</div>
+<div
+    id="toastContainer"
+    class="toast-container"
+></div>
 
-<div id="workspace" class="workspace" style="display:none">
-
-<!-- CONVERTER -->
-
-<div class="panel converter">
-
-<h3>PNG → JPEG Converter</h3>
-
-<input type="file" id="imageUpload">
-<button onclick="convertImage()">Convert</button>
-
-<div id="convertList"></div>
-
-</div>
-
-<!-- CLIPBOARD -->
-
-<div class="panel clipboardPanel">
-
-<h3>Live Clipboard</h3>
-
-<textarea id="clipboard"></textarea>
-
-<button onclick="copyText()">Copy</button>
-
-</div>
-
-<!-- FILE SHARING -->
-
-<div class="panel filePanel">
-
-<h3>File Sharing</h3>
-
-<input type="file" id="fileUpload">
-
-<button onclick="uploadFile()">Upload</button>
-
-<div id="fileList"></div>
-
-</div>
-
-</div>
-
-</div>
 
 <script src="/socket.io/socket.io.js"></script>
+
 <script src="app.js"></script>
 
+
 </body>
+
 </html>
